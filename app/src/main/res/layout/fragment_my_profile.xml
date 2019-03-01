@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".fragments.MyProfileFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#0b0b0d"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:text="@string/my_profile"
+            android:fontFamily="@font/roboto_light"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <ListView
+            android:id="@+id/profile_details_list"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:choiceMode="singleChoice"
+            android:clickable="true"
+            android:focusable="true"
+            tools:ignore="NestedScrolling"
+            tools:listitem="@layout/list_item_user_profile" />
+
+        <Button
+            android:id="@+id/updateBtn"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="200dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/form_view_margin"
+            android:layout_marginBottom="@dimen/form_view_margin"
+            android:background="@drawable/edit_text_style_4"
+            android:fontFamily="@font/lato_bold"
+            android:paddingBottom="5dp"
+            android:text="@string/update"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
+
+</ScrollView>

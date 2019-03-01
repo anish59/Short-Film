@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorBackground"
+    android:minHeight="?attr/listPreferredItemHeight"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/lato_thin"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:textAppearance="?attr/textAppearanceListItem"
+        android:textColor="#8a8b8d"
+        android:textSize="12sp"
+        tools:text="Name" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_thin"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:textAppearance="?attr/textAppearanceListItemSecondary"
+        android:textColor="#8a8b8d"
+        android:textSize="15sp"
+        tools:text="Yogesh Kumar" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="#2f3033" />
+
+</LinearLayout>
