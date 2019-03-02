@@ -2,7 +2,6 @@ package in.helpingdevelop.shortfilm;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,42 +18,45 @@ import com.framgia.android.emulator.EmulatorDetector;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import in.helpingdevelop.shortfilm.viewModels.LoginViewModel;
+import in.helpingdevelop.shortfilm.viewModels.SignUpViewModel;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener, LoginViewModel.LoginViewModelCallBack {
+public class SignUpActivity extends AppCompatActivity implements View.OnClickListener, SignUpViewModel.SignUpViewModelCallBack {
 
-    private LoginViewModel viewModel;
+    private android.widget.EditText edtFullName;
     private android.widget.EditText edtEmail;
     private android.widget.EditText edtPassword;
-    private android.widget.Button btnLogin;
-    private TextView registrationBtn;
+    private android.widget.Button btnSignUp;
+    private TextView btnLogin;
+
+
     private android.widget.ImageView imgMoviePoster;
     private TextView txtMovieTitle;
     private TextView movieGenres;
     private TextView txtMovieReleaseInfo;
+
+    private SignUpViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
-        viewModel = new LoginViewModel(this, this);
+//        checkWith(true);
 
-        if (!viewModel.isUserLoggedIn()) {
-            init();
-        }
-
+        init();
     }
 
     private void init() {
-        setContentView(R.layout.activity_login);
-        this.registrationBtn = (TextView) findViewById(R.id.registrationBtn);
-        this.btnLogin = (Button) findViewById(R.id.btnLogin);
+
+        setContentView(R.layout.activity_signup);
+        this.btnSignUp = (Button) findViewById(R.id.btnSignUp);
         this.edtPassword = (EditText) findViewById(R.id.edtPassword);
         this.edtEmail = (EditText) findViewById(R.id.edtEmail);
+        this.edtFullName = (EditText) findViewById(R.id.edtFullName);
 
-//        View view = LayoutInflater.from(this).inflate(R.layout.movie_box_include, null);
+        //        View view = LayoutInflater.from(this).inflate(R.layout.movie_box_include, null);
         this.txtMovieReleaseInfo = (TextView) findViewById(R.id.txtMovieReleaseInfo);
         this.movieGenres = (TextView) findViewById(R.id.movieGenres);
         this.txtMovieTitle = (TextView) findViewById(R.id.txtMovieTitle);
@@ -66,34 +68,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         txtMovieReleaseInfo.setText(getString(R.string.movie_release));
 
+        btnSignUp.setOnClickListener(this);
 
-        btnLogin.setOnClickListener(this);
-        registrationBtn.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View view) {
-        int id = view.getId();
-        switch (id) {
-            case R.id.btnLogin:
-                viewModel.doLogin(edtEmail, edtPassword);
-                break;
-            case R.id.registrationBtn:
-                startActivity(new Intent(this, SignUpActivity.class));
-                this.finish();
-                break;
-        }
+        viewModel = new SignUpViewModel(this, this);
     }
 
     private void checkWith(boolean telephony) {
-        EmulatorDetector.with(LoginActivity.this)
+        EmulatorDetector.with(SignUpActivity.this)
                 .setCheckTelephony(telephony)
                 .addPackageName("com.bluestacks")
                 .setDebug(true)
                 .detect(new EmulatorDetector.OnEmulatorDetectorListener() {
                     @Override
                     public void onResult(final boolean isEmulator) {
-                        LoginActivity.this.runOnUiThread(new Runnable() {
+                        SignUpActivity.this.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 if (radioVersion().equals("")) {
@@ -102,7 +90,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     createDialog();
                                 } else {
                                     if (getCpuTemp() == 0.0) {
-                                        Toast.makeText(LoginActivity.this,
+                                        Toast.makeText(SignUpActivity.this,
                                                 "This is an emulator.", Toast.LENGTH_SHORT).show();
                                     }
                                 }
@@ -113,12 +101,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     public void createDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(SignUpActivity.this);
         builder.setMessage("This app doesn't support emulators.");
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                LoginActivity.this.finish();
+                SignUpActivity.this.finish();
             }
         });
         builder.setCancelable(false);
@@ -145,12 +133,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        switch (id) {
+
+            case R.id.btnSignUp:
+                viewModel.doSignUp(edtFullName, edtEmail, edtPassword);
+                break;
+        }
+    }
+
+    @Override
     public void onSuccess(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
 
     }
 
     @Override
-    public void onError(String errMsg) {
+    public void onError(String err) {
+        Toast.makeText(this, err, Toast.LENGTH_SHORT).show();
 
     }
 }

@@ -24,7 +24,7 @@
             android:src="@drawable/movie_icon" />
 
         <EditText
-            android:id="@+id/username"
+            android:id="@+id/edtFullName"
             android:layout_width="match_parent"
             android:layout_height="@dimen/form_view_height"
             android:layout_marginTop="@dimen/form_view_margin"
@@ -39,7 +39,7 @@
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/edtEmail"
             android:layout_width="match_parent"
             android:layout_height="@dimen/form_view_height"
             android:layout_marginTop="@dimen/form_view_margin"
@@ -54,7 +54,7 @@
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/edtPassword"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="@dimen/form_view_margin"
@@ -70,7 +70,7 @@
             android:textSize="14sp" />
 
         <Button
-            android:id="@+id/registrationBtn"
+            android:id="@+id/btnSignUp"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="@dimen/form_view_height"
@@ -83,7 +83,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/loginBtn"
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"

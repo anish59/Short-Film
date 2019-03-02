@@ -2,6 +2,10 @@ package in.helpingdevelop.shortfilm;
 
 import android.app.Application;
 
+import com.facebook.stetho.Stetho;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.util.concurrent.TimeUnit;
 
 import in.helpingdevelop.shortfilm.helper.AppConstants;
@@ -12,11 +16,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AppApplication extends Application {
     private static Retrofit retrofit;
+    private static Gson gson;
 
     @Override
     public void onCreate() {
         super.onCreate();
         initRetroFit();
+        Stetho.initializeWithDefaults(this);
+        initGson();
     }
 
     private void initRetroFit() {
@@ -33,6 +40,16 @@ public class AppApplication extends Application {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
+    }
+
+    private void initGson() {
+        gson = new GsonBuilder()
+                .setLenient()
+                .create();
+    }
+
+    public static Gson getGson() {
+        return gson;
     }
 
     public static Retrofit getRetrofit() {

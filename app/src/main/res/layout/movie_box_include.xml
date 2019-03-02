@@ -14,7 +14,7 @@
         android:padding="16dp">
 
         <ImageView
-            android:id="@+id/movie_poster"
+            android:id="@+id/imgMoviePoster"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginEnd="16dp"
@@ -29,7 +29,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/movie_title"
+                android:id="@+id/txtMovieTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato_black"
@@ -38,7 +38,7 @@
                 tools:text="MAD MAX FURY ROAD" />
 
             <TextView
-                android:id="@+id/movie_genres"
+                android:id="@+id/movieGenres"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato_regular"
@@ -48,7 +48,7 @@
                 tools:text="Action, Adventure, Sci-Fi" />
 
             <TextView
-                android:id="@+id/movie_release_info"
+                android:id="@+id/txtMovieReleaseInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato_regular"

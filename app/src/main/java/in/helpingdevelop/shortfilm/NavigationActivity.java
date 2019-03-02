@@ -36,6 +36,10 @@ import in.helpingdevelop.shortfilm.adapters.PagerAdapter;
 import in.helpingdevelop.shortfilm.fragments.BookingFragment;
 import in.helpingdevelop.shortfilm.fragments.MyProfileFragment;
 import in.helpingdevelop.shortfilm.fragments.PaymentFragment;
+import in.helpingdevelop.shortfilm.helper.Functions;
+import in.helpingdevelop.shortfilm.helper.IntentUtils;
+import in.helpingdevelop.shortfilm.helper.PrefUtils;
+import in.helpingdevelop.shortfilm.model.UserProfile;
 
 public class NavigationActivity extends AppCompatActivity {
 
@@ -150,7 +154,8 @@ public class NavigationActivity extends AppCompatActivity {
                         break;
                     case 3:
                         break;
-                    case 4:
+                    case 4://Logout
+                        Functions.doLogOut(NavigationActivity.this);
                         break;
 
                 }

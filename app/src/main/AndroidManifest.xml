@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="in.helpingdevelop.shortfilm">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -28,7 +29,7 @@
             android:label="@string/title_activity_navigation"
             android:theme="@style/NotificationActivity" />
         <activity
-            android:name=".SignupActivity"
+            android:name=".SignUpActivity"
             android:screenOrientation="sensorPortrait" />
         <activity android:name="com.example.programmer.realapp.FullscreenActivity"
             android:screenOrientation="landscape"/>

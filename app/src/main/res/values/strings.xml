@@ -67,4 +67,6 @@
     <string name="people_are_interested_to_watch">People are Interested To Watch</string>
     <string name="releasing_on">Releasing On :</string>
     <string name="_100">100/-</string>
+    <string name="trouble_logging_in">Trouble Logging in</string>
+    <string name="trouble_signing_up">Trouble Signing up</string>
 </resources>

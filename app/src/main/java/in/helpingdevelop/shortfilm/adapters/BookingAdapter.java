@@ -36,10 +36,10 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHold
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            movie_poster = itemView.findViewById(R.id.movie_poster);
-            movie_title = itemView.findViewById(R.id.movie_title);
-            movie_genres = itemView.findViewById(R.id.movie_genres);
-            movie_release_date = itemView.findViewById(R.id.movie_release_info);
+            movie_poster = itemView.findViewById(R.id.imgMoviePoster);
+            movie_title = itemView.findViewById(R.id.txtMovieTitle);
+            movie_genres = itemView.findViewById(R.id.movieGenres);
+            movie_release_date = itemView.findViewById(R.id.txtMovieReleaseInfo);
             booked = itemView.findViewById(R.id.booked);
             booking_date = itemView.findViewById(R.id.booked_date);
             booking_amount = itemView.findViewById(R.id.booking_amount);

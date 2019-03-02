@@ -16,4 +16,5 @@ public class AppConstants {
 
     public static final String CLICK_BOOK="Api/booked"; /*Param : movie_id*/
 
+    public static final int SUCCESS = 1;
 }

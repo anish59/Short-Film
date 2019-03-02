@@ -25,9 +25,9 @@ public class PreviousFilmsAdapter extends RecyclerView.Adapter<PreviousFilmsAdap
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            movie_title = itemView.findViewById(R.id.movie_title);
+            movie_title = itemView.findViewById(R.id.txtMovieTitle);
             movie_language = itemView.findViewById(R.id.movie_language);
-            movie_genres = itemView.findViewById(R.id.movie_genres);
+            movie_genres = itemView.findViewById(R.id.movieGenres);
             movie_release_date = itemView.findViewById(R.id.movie_release_date);
         }
     }
