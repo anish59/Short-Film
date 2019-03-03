@@ -7,6 +7,7 @@ public class UserProfile {
     private String name;
     private String mobile;
     private String dob;
+    private String password = "password";
 
     public String getId() {
         return id;

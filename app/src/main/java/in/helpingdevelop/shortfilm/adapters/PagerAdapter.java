@@ -4,7 +4,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import in.helpingdevelop.shortfilm.fragments.NowPlayingFragment;
 import in.helpingdevelop.shortfilm.fragments.PreviousFilmsFragment;
 import in.helpingdevelop.shortfilm.fragments.RunningFilmsFragment;
 import in.helpingdevelop.shortfilm.fragments.UpcomingFilmsFragment;

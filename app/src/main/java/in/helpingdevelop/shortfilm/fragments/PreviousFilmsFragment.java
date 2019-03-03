@@ -9,38 +9,53 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-import java.util.ArrayList;
+import java.util.List;
 
-import in.helpingdevelop.shortfilm.Film;
 import in.helpingdevelop.shortfilm.R;
 import in.helpingdevelop.shortfilm.adapters.PreviousFilmsAdapter;
+import in.helpingdevelop.shortfilm.helper.AppLogger;
+import in.helpingdevelop.shortfilm.model.MovieData;
+import in.helpingdevelop.shortfilm.viewModels.PreviousFilmsFragmentViewModel;
 
-public class PreviousFilmsFragment extends Fragment {
+public class PreviousFilmsFragment extends Fragment implements PreviousFilmsFragmentViewModel.PreviousFilmsFragmentCallBack {
+    private RecyclerView rvFilm;
+    private PreviousFilmsFragmentViewModel viewModel;
+    private PreviousFilmsAdapter filmsAdapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.previous_film_frag, container, false);
+        View view = inflater.inflate(R.layout.previous_film_frag, container, false);
+        this.rvFilm = (RecyclerView) view.findViewById(R.id.rvFilm);
+        init();
+        return view;
+    }
+
+    private void init() {
+        viewModel = new PreviousFilmsFragmentViewModel(getContext(), this);
+        viewModel.getPreviousFilmDetail();
+
+        filmsAdapter = new PreviousFilmsAdapter(getContext());
+        rvFilm.setLayoutManager(new LinearLayoutManager(getContext()));
+        rvFilm.setAdapter(filmsAdapter);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        RecyclerView rvFilm = view.findViewById(R.id.rvFilm);
-        ArrayList<Film> films = new ArrayList<>();
+    }
 
-        for (int i = 0; i < 100; i++) {
-            Film film = new Film();
-            film.setName("JACKSON BOY");
-            film.setLanguage("HINDI");
-            film.setGenres("Action, Sci-Fi");
-            film.setRelease_date("1 JAN 2018");
-            films.add(film);
-        }
+    @Override
+    public void onSuccess(List<MovieData> movieDataList) {
+        filmsAdapter.setMovieDataList(movieDataList);
+    }
 
-        PreviousFilmsAdapter adapter = new PreviousFilmsAdapter(films);
-        rvFilm.setAdapter(adapter);
-        rvFilm.setLayoutManager(new LinearLayoutManager(getContext()));
+    @Override
+    public void onError(String errMsg) {
+        AppLogger.e(errMsg);
+        Toast.makeText(getContext(), errMsg, Toast.LENGTH_SHORT).show();
     }
 }
 

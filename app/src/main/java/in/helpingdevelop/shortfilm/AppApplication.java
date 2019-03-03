@@ -2,6 +2,7 @@ package in.helpingdevelop.shortfilm;
 
 import android.app.Application;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.stetho.Stetho;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -23,6 +24,7 @@ public class AppApplication extends Application {
         super.onCreate();
         initRetroFit();
         Stetho.initializeWithDefaults(this);
+        Fresco.initialize(this);
         initGson();
     }
 

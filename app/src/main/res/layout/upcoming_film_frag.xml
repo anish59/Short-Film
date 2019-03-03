@@ -14,12 +14,11 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <ImageView
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/imgMoviePoster"
                 android:layout_width="match_parent"
                 android:layout_height="500dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/default_poster"
-                android:contentDescription="@string/movie_poster" />
+                android:scaleType="centerCrop" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -95,15 +94,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@android:color/black"
-            android:gravity="center_vertical"
+            android:background="@color/colorBackground"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight=".6"
-                android:background="@color/colorBackground"
                 android:padding="11dp"
                 android:text="COMING SOON"
                 android:textAlignment="center" />

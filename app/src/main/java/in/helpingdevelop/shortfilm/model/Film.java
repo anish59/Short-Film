@@ -1,4 +1,4 @@
-package in.helpingdevelop.shortfilm;
+package in.helpingdevelop.shortfilm.model;
 
 public class Film {
     private int id;

@@ -69,4 +69,5 @@
     <string name="_100">100/-</string>
     <string name="trouble_logging_in">Trouble Logging in</string>
     <string name="trouble_signing_up">Trouble Signing up</string>
+    <string name="error_fetching_data">Error fetching data</string>
 </resources>

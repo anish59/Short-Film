@@ -14,10 +14,9 @@ import android.widget.Switch;
 
 import java.util.ArrayList;
 
-import in.helpingdevelop.shortfilm.Film;
+import in.helpingdevelop.shortfilm.model.Film;
 import in.helpingdevelop.shortfilm.R;
 import in.helpingdevelop.shortfilm.adapters.BookingAdapter;
-import in.helpingdevelop.shortfilm.adapters.PreviousFilmsAdapter;
 
 public class BookingFragment extends Fragment {
     View mView;

@@ -15,7 +15,7 @@ import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 
-import in.helpingdevelop.shortfilm.Film;
+import in.helpingdevelop.shortfilm.model.Film;
 import in.helpingdevelop.shortfilm.R;
 
 public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.ViewHolder> {

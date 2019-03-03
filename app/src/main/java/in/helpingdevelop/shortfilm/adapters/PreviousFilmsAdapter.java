@@ -6,67 +6,79 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
+
 import java.util.ArrayList;
+import java.util.List;
 
-import in.helpingdevelop.shortfilm.Film;
 import in.helpingdevelop.shortfilm.R;
+import in.helpingdevelop.shortfilm.model.MovieData;
 
-public class PreviousFilmsAdapter extends RecyclerView.Adapter<PreviousFilmsAdapter.ViewHolder> {
+public class PreviousFilmsAdapter extends RecyclerView.Adapter<PreviousFilmsAdapter.PreviousFilmViewHolder> {
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    private Context context;
+    private List<MovieData> movieDataList;
 
-        public TextView movie_title;
-        public TextView movie_language;
-        public TextView movie_genres;
-        public TextView movie_release_date;
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-            movie_title = itemView.findViewById(R.id.txtMovieTitle);
-            movie_language = itemView.findViewById(R.id.movie_language);
-            movie_genres = itemView.findViewById(R.id.movieGenres);
-            movie_release_date = itemView.findViewById(R.id.movie_release_date);
-        }
+    public PreviousFilmsAdapter(Context context) {
+        this.context = context;
     }
 
-    private ArrayList<Film> mFilms;
-
-    public PreviousFilmsAdapter(ArrayList<Film> films) {
-        mFilms = films;
+    public void setMovieDataList(List<MovieData> movieDataList) {
+        this.movieDataList = new ArrayList<>();
+        this.movieDataList = movieDataList;
+        notifyDataSetChanged();
     }
-
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        Context context = viewGroup.getContext();
-        LayoutInflater inflater = LayoutInflater.from(context);
+    public PreviousFilmViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View view = LayoutInflater.from(context).inflate(R.layout.list_item_film, viewGroup, false);
 
-        // Inflate the custom layout
-        View contactView = inflater.inflate(R.layout.list_item_film, viewGroup, false);
-
-        // Return a new holder instance
-        ViewHolder viewHolder = new ViewHolder(contactView);
-        return viewHolder;
+        return new PreviousFilmViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        Film film = mFilms.get(i);
-
-        viewHolder.movie_title.setText(film.getName());
-        viewHolder.movie_language.setText(film.getLanguage());
-        viewHolder.movie_genres.setText(film.getGenres());
-        viewHolder.movie_release_date.setText(film.getRelease_date());
+    public void onBindViewHolder(@NonNull PreviousFilmViewHolder previousFilmViewHolder, int i) {
+        previousFilmViewHolder.setData(movieDataList.get(i));
     }
-
-
 
     @Override
     public int getItemCount() {
-        return mFilms.size();
+        return movieDataList != null ? movieDataList.size() : 0;
     }
+
+    class PreviousFilmViewHolder extends RecyclerView.ViewHolder {
+        TextView txtReleaseDate;
+        TextView txtMovieGenres;
+        TextView txtMovieLanguage;
+        TextView txtMovieTitle;
+        SimpleDraweeView imgMoviePoster;
+        Button btnDoWhat;
+
+        public PreviousFilmViewHolder(@NonNull View itemView) {
+            super(itemView);
+            txtReleaseDate = (TextView) itemView.findViewById(R.id.txtReleaseDate);
+            txtMovieGenres = (TextView) itemView.findViewById(R.id.txtMovieGenres);
+            txtMovieLanguage = (TextView) itemView.findViewById(R.id.txtMovieLanguage);
+            txtMovieTitle = (TextView) itemView.findViewById(R.id.txtMovieTitle);
+            imgMoviePoster = (SimpleDraweeView) itemView.findViewById(R.id.imgMoviePoster);
+            btnDoWhat = (Button) itemView.findViewById(R.id.btnDoWhat);
+        }
+
+        void setData(MovieData data) {
+            txtMovieTitle.setText(data.getTitle());
+            txtReleaseDate.setText(data.getRelease_on());
+            imgMoviePoster.setImageURI(data.getPoster_1());
+
+            txtMovieLanguage.setText("English");
+            txtMovieGenres.setText("Action/Sci-fi");
+            btnDoWhat.setText(data.getButton_name());
+
+        }
+    }
+
 }
