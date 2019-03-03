@@ -9,4 +9,5 @@
 
     <color name="colorBackground">#15161a</color>
     <color name="light_blue">#1a7abd</color>
+    <color name="grey">#595a62</color>
 </resources>

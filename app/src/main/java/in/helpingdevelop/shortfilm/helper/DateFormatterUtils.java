@@ -34,7 +34,6 @@ public class DateFormatterUtils {
     public static final SimpleDateFormat ymdhmsFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.US); // 2018-03-06 01:55:22
 
     public static final SimpleDateFormat sdf_day = new SimpleDateFormat("EEE dd-MMM-yyyy", Locale.US); // Tue 06-Mar-2018
-    public static final SimpleDateFormat ddMMMMYYYY = new SimpleDateFormat("dd MMMM,yyyy", Locale.US); // 01 June,2018
     public static final SimpleDateFormat dd_MMMM_YYYY = new SimpleDateFormat("dd MMMM yyyy", Locale.US); // 01 June,2018
 
     public static final SimpleDateFormat dayDate = new SimpleDateFormat("EEE dd", Locale.US); // Tue 06

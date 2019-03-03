@@ -19,6 +19,7 @@
         android:gravity="center_vertical"
         android:fontFamily="@font/lato_light"
         android:paddingStart="32dp"
+        android:textColor="@color/whiteColor"
         tools:text="@string/my_profile"
         tools:ignore="RtlSymmetry" />
 

@@ -1,55 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
+    android:orientation="vertical"
     tools:context=".fragments.MyProfileFragment">
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btnUpdate">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#0b0b0d"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            android:text="@string/my_profile"
-            android:fontFamily="@font/roboto_light"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
+            android:orientation="vertical">
 
-        <ListView
-            android:id="@+id/profile_details_list"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:choiceMode="singleChoice"
-            android:clickable="true"
-            android:focusable="true"
-            tools:ignore="NestedScrolling"
-            tools:listitem="@layout/list_item_user_profile" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#0b0b0d"
+                android:fontFamily="@font/roboto_light"
+                android:paddingLeft="30dp"
+                android:paddingTop="10dp"
+                android:paddingRight="30dp"
+                android:paddingBottom="10dp"
+                android:text="@string/my_profile"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
 
-        <Button
-            android:id="@+id/updateBtn"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="200dp"
-            android:layout_height="45dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/form_view_margin"
-            android:layout_marginBottom="@dimen/form_view_margin"
-            android:background="@drawable/edit_text_style_4"
-            android:fontFamily="@font/lato_bold"
-            android:paddingBottom="5dp"
-            android:text="@string/update"
-            android:textColor="@android:color/white"
-            android:textSize="18sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dimen_16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+
+                    android:textColor="@color/whiteColor"
+                    android:textSize="@dimen/sp12" />
+
+                <EditText
+                    android:id="@+id/edtFullName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="enter full name"
+                    android:textColorHint="@color/grey"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="@dimen/sp16" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dimen_16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mobile"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="@dimen/sp12" />
+
+                <EditText
+                    android:id="@+id/edtMobile"
+                    android:layout_width="match_parent"
+                    android:inputType="phone"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="enter Mobile number"
+                    android:textColorHint="@color/grey"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="@dimen/sp16" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/grey" />
 
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dimen_16dp">
 
-</ScrollView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Date of birth"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="@dimen/sp12" />
+
+                <TextView
+                    android:id="@+id/txtDob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="enter your birthday date"
+                    android:textColor="@color/whiteColor"
+                    android:textColorHint="@color/grey"
+                    android:textSize="@dimen/sp16" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dimen_16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email id"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="@dimen/sp12" />
+
+                <TextView
+                    android:id="@+id/txtEmailId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:text="abc@gmail.com"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/sp16" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/grey" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dimen_16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ticket Booked"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="@dimen/sp12" />
+
+                <TextView
+                    android:id="@+id/txtBookedCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:textColorHint="@color/grey"
+                    android:textColor="@color/grey"
+                    android:text="0"
+                    android:textSize="@dimen/sp16" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnUpdate"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/form_view_margin"
+        android:layout_marginBottom="@dimen/form_view_margin"
+        android:background="@drawable/edit_text_style_4"
+        android:fontFamily="@font/lato_bold"
+        android:paddingBottom="5dp"
+        android:text="@string/update"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+
+</RelativeLayout>
